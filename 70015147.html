@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Travel Survey  – Ng Ka Wai & 70015147</title>
+<style>
+form{
+	background-color: #e6e6e6;
+	padding:15px;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #3399ff;
+  color: white;
+  padding: 14px 24px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #6f94dc;
+}
+
+.likert {
+    list-style:none;
+    width:100%;
+    margin:0;
+    padding:0 0 35px;
+    display:block;
+    border-bottom:2px solid #efefef;
+ }
+  
+.likert:last-of-type {
+  border-bottom:0;
+ }
+  
+.likert:before {
+    content: '';
+    position:relative;
+    top:11px;
+    left:9.5%;
+    display:block;
+    background-color:#efefef;
+    height:4px;
+    width:78%;
+}
+
+.likert li {
+    display:inline-block;
+    width:19%;
+    text-align:center;
+    vertical-align: top;
+}
+ 
+.likert li input[type=radio] {
+    display:block;
+    position:relative;
+    top:0;
+    left:50%;
+    margin-left:-6px;
+}
+
+.likert li label {
+    width:100%;
+}
+</style>
+
+<script>
+function sub(){
+user = /(\w.+\s).+/
+if (!user.test(document.getElementById("traveller_survey").username.value.trim())){
+	    alert("Invalid name!"); return }
+		
+if(!document.getElementById("traveller_survey").male.checked&&!document.getElementById("traveller_survey").female.checked){
+       alert("Please select gender!"); return }		
+
+email = /^[a-z0-9_-]+@[a-z0-9.]+.[a-z]{2,4}$/
+if (!email.test(document.getElementById("traveller_survey").email.value)){
+	    alert("Invalid E-mail!"); return }
+		
+    else if (!document.getElementById("traveller_survey").email.value.includes(".com") && 
+	!document.getElementById("traveller_survey").email.value.includes(".org") && 
+	!document.getElementById("traveller_survey").email.value.includes(".edu") && 
+	!document.getElementById("traveller_survey").email.value.includes(".net")){
+					alert("invalid E-mail!"); return
+				}
+	
+mobileNum =/^[0-9]{8}$/
+if (!mobileNum.test(document.getElementById("traveller_survey").mobile.value)){
+       alert("Invalid Mobile number!"); return }
+
+}
+</script>
+
+</head>
+
+<body>
+<h1 style="text-align: center">Travel Survey  – Ng Ka Wai & 70015147</h1>
+<form name="traveller_survey" id="traveller_survey" method="get">
+    <div>  
+	  <b>Name: </b>
+         <input type="text" name="username" size="20" />
+	</div><br>
+	
+    <div> 
+      <b><label>Sex:</label></b>
+         <input type="radio" name="male" value="m"> Male
+         <input type="radio" name="female" value="f"> Female
+    </div><br>
+  
+    <div>
+      <b>E-mail: </b>
+         <input type="text" name="email" size="30" />
+	</div><br>
+	
+	<div>
+      <b><label>Mobile:</label></b>
+	     <input name="mobile" id="mobile">
+    </div><br> 
+    
+	<div>
+      <b><label>Q1.How often do you book your travels with us?</label></b>
+	    <p><input type="radio" name="Q1">This is my first booking
+        <input type="radio" name="Q1">Rarely
+        <input type="radio" name="Q1">Occasionally
+		<input type="radio" name="Q1">Often</p>   
+    </div><br>
+
+    <div>
+      <b><label>Q2.Which country(s) in Asia you would like to visit?</label></b>
+	    <p><input type="checkbox">China
+		<input type="checkbox">Japan
+		<input type="checkbox">Singapore
+		<input type="checkbox">Thailand
+		<input type="checkbox">South Korea</p>
+    </div><br>	
+	
+	<div>
+      <b><label>Q3.Would you recommend us to your friend?</label></b>
+	    <ul class='likert'>
+      <li>
+        <input type="radio" name="likert" value="Q3">
+        <label>(5)Strongly recommend</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="Q3">
+        <label>Recommend</label>
+      </li>
+      <li>
+        <input type="radio" name="likert" value="Q3">
+        <label>May Consider</label>
+      </li>
+	  <li>
+        <input type="radio" name="likert" value="Q3">
+        <label>Not Recommend</label>
+      </li>
+	  <li>
+        <input type="radio" name="likert" value="Q3">
+        <label>(1)Strongly not recommend</label>
+      </li>
+    </ul>
+    </div><br>
+	
+	<div>
+      <b><label>Q4.How did you hear about us?</label></b>
+	    <p><input type="radio" name="Q4">Friend
+        <input type="radio" name="Q4">TV advertisements
+        <input type="radio" name="Q4">Internet
+		<input type="radio" name="Q4">Newspaper
+	    <input type="radio" name="Q4">Others</p>	
+    </div><br>
+  
+    <div>
+      <b><label>Q5.How can we improve our services?</label></b>
+	    <input type="text"/>
+    </div><br>
+<input type="submit" value="Submit" onclick="sub()" />
+</form>
+</body>
